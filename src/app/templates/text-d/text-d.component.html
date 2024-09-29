@@ -1,0 +1,14 @@
+<div>
+  <h2>CONTENT TEXT-D COMPONENT</h2>
+  @if (default()) {
+    <h3>Rendered as default</h3>
+  }
+  @if (title()) {
+    <h4>{{ title() }}</h4>
+  }
+  <ol>
+    @for (d of data(); track $index) {
+      <li>{{ d }}</li>
+    }
+  </ol>
+</div>

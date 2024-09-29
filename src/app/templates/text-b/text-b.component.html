@@ -1,0 +1,9 @@
+<div>
+  <h2>CONTENT TEXT-B COMPONENT</h2>
+  @if (default()) {
+    <h3>Rendered as default</h3>
+  }
+  @for (d of data(); track $index) {
+    <p>{{ d }}</p>
+  }
+</div>

@@ -1,0 +1,9 @@
+@for (element of schema(); track element.id) {
+  @let dataAfterMapping = data() | dataTransform: element;
+  <app-template-wrapper
+    [key]="element.templateKey"
+    [data]="dataAfterMapping.data"
+    [extendedData]="dataAfterMapping.extendedData"
+    [schema]="element"
+  />
+}
