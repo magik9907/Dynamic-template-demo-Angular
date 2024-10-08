@@ -17,7 +17,7 @@ export interface MappedData {
 }
 
 export interface TemplateSchema {
-  objectPath: (string | number)[];
+  objectPath: string;
   mapper?: (data: any, originalData: any) => MappedData;
   templateKey: string;
 }

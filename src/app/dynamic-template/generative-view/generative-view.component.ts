@@ -7,7 +7,7 @@ import { JsonPipe } from '@angular/common';
 @Component({
   selector: 'app-generative-view',
   standalone: true,
-  imports: [TemplateWrapperComponent, DataTransformPipe,JsonPipe],
+  imports: [TemplateWrapperComponent, DataTransformPipe, JsonPipe],
   templateUrl: './generative-view.component.html',
   styleUrl: './generative-view.component.scss',
 })

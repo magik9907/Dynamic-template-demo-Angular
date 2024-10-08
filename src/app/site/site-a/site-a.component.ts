@@ -70,18 +70,18 @@ export class SiteAComponent {
     notes: ['view', 'score', 'test'],
   };
   schema: TemplateSchema[] = [
-    { objectPath: ['title'], templateKey: 'text-a' },
-    { objectPath: ['section', 0, 'description'], templateKey: 'text-a' },
+    { objectPath: '$.title', templateKey: 'text-a' },
+    { objectPath: '$.section.0.description', templateKey: 'text-a' },
     {
-      objectPath: ['dates'],
+      objectPath: '$.dates',
       mapper(data: Date[]) {
         return { data: data.map((d) => d.toLocaleString()) };
       },
       templateKey: 'text-b',
     },
-    { objectPath: ['result', 'test'], templateKey: 'text-a' },
+    { objectPath: '$.result.test', templateKey: 'text-a' },
     {
-      objectPath: ['section'],
+      objectPath: '$.section.*',
       mapper(data: IExample['section']) {
         return {
           data: data.map((d) => `${d.description} ${d.note ?? d.score}`),
@@ -89,9 +89,9 @@ export class SiteAComponent {
       },
       templateKey: 'text-b',
     },
-    { objectPath: ['notes'], templateKey: 'text-d' },
+    { objectPath: '$.notes', templateKey: 'text-d' },
     {
-      objectPath: ['notes'],
+      objectPath: '$.notes',
       mapper(data: IExample['notes'], originalData: IExample) {
         return {
           data: `${data[0]}`,
