@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:dynamic-template": "node dist/dynamic-template/server/server.mjs"
+    "serve:ssr:dynamic-template": "node dist/dynamic-template/server/server.mjs",
+    "deploy": "npm run build & xcopy \".\\dist\\dynamic-template\\browser\" \".\\docs\" /S /Y &  git add ./docs/* & git commit  -m 'deploy' & git push "
   },
   "private": true,
   "dependencies": {
