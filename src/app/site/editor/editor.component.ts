@@ -61,7 +61,7 @@ import { IS_BROWSER } from '../../tokens/is-browser';
 })
 export class EditorComponent {
   localStorageService = inject(LocalStorageService);
-  readonly editorOptions = { theme: 'vs-dark', language: 'json' };
+  readonly editorOptions = { theme: 'vs-dark', language: 'json'};
 
   data = signal<string>(this.localStorageService.getItem(STORAGE_KEY) ?? DATA);
   dataObject = computed(() => JSON.parse(this.data()));
@@ -143,9 +143,8 @@ export class EditorComponent {
   }
 
   private getTransformData(): TransformData[] {
-    const data = JSON.parse(
-      this.localStorageService.getItem(TRANSFORM_KEY) ?? '',
-    );
+    const storageData = this.localStorageService.getItem(TRANSFORM_KEY);
+    const data = storageData ? JSON.parse(storageData) : [];
     return Array.isArray(data) ? data : [];
   }
 

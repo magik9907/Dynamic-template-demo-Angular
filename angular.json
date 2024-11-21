@@ -21,6 +21,7 @@
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": ["zone.js"],
+            "deployUrl":"/Dynamic-template-demo-Angular/",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -31,12 +32,12 @@
               {
                 "glob": "**/*",
                 "input": "node_modules/monaco-editor/min",
-                "output": "./assets/monaco/min"
+                "output": "/assets/monaco/min"
               },
               {
                 "glob": "**/*",
                 "input": "node_modules/monaco-editor/min-maps",
-                "output": "./assets/monaco/min-maps"
+                "output": "/assets/monaco/min-maps"
               }
             ],
             "styles": [

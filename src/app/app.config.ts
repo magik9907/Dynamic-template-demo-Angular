@@ -12,6 +12,6 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideClientHydration(),
     provideAnimationsAsync(),
-    provideMonacoEditor({}),
+    provideMonacoEditor({baseUrl:"/Dynamic-template-demo-Angular/assets/monaco/min/vs"}),
   ],
 };
