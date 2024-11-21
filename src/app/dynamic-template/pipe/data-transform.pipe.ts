@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { GenerativeTemplateSchema, MappedData, TemplateSchema } from '../types';
+import { GenerativeTemplateSchema, MappedData } from '../types';
 import { JSONPath } from 'jsonpath-plus';
 
 @Pipe({

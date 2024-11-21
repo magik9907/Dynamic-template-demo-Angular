@@ -3,4 +3,9 @@
   @if (default()) {
     <h3>Rendered as default</h3>
   }
+
+  @if (additionalInput()) {
+    <p>Additional inputs</p>
+    {{ additionalInput() | json }}
+  }
 </div>

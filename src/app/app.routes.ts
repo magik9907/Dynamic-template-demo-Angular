@@ -7,4 +7,5 @@ export const routes: Routes = [
   { path: 'site-a', component: SiteAComponent },
   { path: 'site-b', component: SiteBComponent },
   { path: 'editor', component: EditorComponent },
+  { path: '**', redirectTo: 'site-a' },
 ];

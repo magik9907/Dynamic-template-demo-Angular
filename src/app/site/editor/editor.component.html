@@ -1,1 +1,77 @@
-<h1 class="title">Manual demo - online demo</h1>
+<h1 class="">Manual demo - online demo</h1>
+<button (click)="reset()" mat-flat-button>Reset demo data</button>
+
+<mat-tab-group
+  [selectedIndex]="selected()"
+  (selectedIndexChange)="selected.set($event)"
+>
+  <mat-tab label="Data">
+    <div class="grid">
+      <ng-container *ngTemplateOutlet="dataTemplate" />
+      <ng-container *ngTemplateOutlet="transformTemplate" />
+    </div>
+  </mat-tab>
+  <mat-tab label="Preview">
+    <app-generative-view
+      [schema]="transformSchema()"
+      [data]="dataObject()"
+    ></app-generative-view>
+  </mat-tab>
+</mat-tab-group>
+
+<ng-template #dataTemplate>
+  <section>
+    <h2>Data</h2>
+    <div class="flex justify-space-between">
+      <p>Format in JSON</p>
+      <div>
+        <button (click)="resetData()" mat-flat-button>Reset</button>
+      </div>
+    </div>
+    @if (isBrowser) {
+      <div class="container">
+        <ngx-monaco-editor
+          [ngModel]="data()"
+          (ngModelChange)="setData($event)"
+          [options]="editorOptions"
+          class="code-editor"
+          style="height: 100%"
+        />
+      </div>
+    }
+</section>
+</ng-template>
+
+<ng-template #transformTemplate>
+  <section>
+    <h2>Transformation options</h2>
+    <mat-accordion style="width: 100%">
+      @for (transform of transformData(); track transform.id) {
+        <mat-expansion-panel hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title> Transformation 1</mat-panel-title>
+            <mat-panel-description>
+              Id: {{ transform.id }}</mat-panel-description
+            >
+          </mat-expansion-panel-header>
+        <button mat-flat-button (click)="removeTransformation(transform.id)">
+            Remove transformation
+          </button>
+          <app-transformation
+            [model]="transform"
+            (modelChange)="updateTransformation($event)"
+          />
+        </mat-expansion-panel>
+      }
+
+      <mat-action-row>
+        <div style="padding: 16px">
+          <button (click)="resetTranformData()" mat-flat-button>Reset</button>
+          <button mat-raised-button (click)="addTransformation()">
+            Add transform
+          </button>
+        </div>
+      </mat-action-row>
+    </mat-accordion>
+  </section>
+</ng-template>

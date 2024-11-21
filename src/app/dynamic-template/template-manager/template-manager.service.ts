@@ -1,6 +1,7 @@
 import { computed, inject, Injectable } from '@angular/core';
 import { TEMPLATE_TOKEN } from '../constant';
 import { DynamicToken } from '../types';
+import { AbstractTemplateComponent } from '../abstract-template/abstract-template.component';
 
 @Injectable()
 export class TemplateManagerService {
@@ -13,15 +14,20 @@ export class TemplateManagerService {
       new Map<string, DynamicToken>(),
     );
   });
-  default = computed(() => {
+  default = computed<DynamicToken>(() => {
+    if (!this.templates.length) {
+      return {
+        component: AbstractTemplateComponent,
+        key: 'components-not-exists',
+        default: true,
+      };
+    }
     const el = this.templates.find((x) => x.default);
     return { ...(el ?? this.templates[0]), default: true };
   });
-  constructor() {
-    console.log('List of available component in template', this.templates);
-  }
 
   getComponent(key: string): DynamicToken {
-    return this.templateMap().get(key) ?? this.default();
+    const template = this.templateMap().get(key);
+    return template ? { ...template, default: false } : this.default();
   }
 }

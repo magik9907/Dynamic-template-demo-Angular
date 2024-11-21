@@ -1,10 +1,39 @@
+@use "@angular/material" as mat;
+
+@include mat.core();
+
+$dark-theme: mat.define-theme(
+  (
+    color: (
+      theme-type: dark,
+      primary: mat.$orange-palette,
+      tertiary: mat.$blue-palette,
+    ),
+  )
+);
+
+:root {
+  @include mat.all-component-colors($dark-theme);
+}
+
 html,
 body {
   margin: 0;
   padding: 0;
+  height: 100%;
 }
 
-.title {
-  text-align: center;
-  border-bottom: 1px solid orangered;
+body {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.flex {
+  display: flex;
+}
+
+.justify-space-between {
+  justify-content: space-between;
 }

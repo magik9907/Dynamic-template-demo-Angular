@@ -7,7 +7,7 @@ import { Component, input } from '@angular/core';
   templateUrl: './abstract-template.component.html',
   styleUrl: './abstract-template.component.scss',
 })
-export abstract class AbstractTemplateComponent<Data> {
+export class AbstractTemplateComponent<Data> {
   data = input.required<Data>();
   default = input<boolean>(false);
 }
