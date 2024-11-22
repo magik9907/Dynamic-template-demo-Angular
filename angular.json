@@ -21,7 +21,6 @@
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": ["zone.js"],
-            "deployUrl":"/Dynamic-template-demo-Angular/",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -47,12 +46,17 @@
             "scripts": [],
             "server": "src/main.server.ts",
             "prerender": true,
-            "ssr": {  
+            "ssr": {
               "entry": "server.ts"
             }
           },
           "configurations": {
             "production": {
+              "define": {
+                "MONACO_EDITO_BASE_URL": "'/Dynamic-template-demo-Angular/assets/monaco/min/vs'"
+              },
+              "baseHref": "/Dynamic-template-demo-Angular",
+              "deployUrl": "/Dynamic-template-demo-Angular/",
               "budgets": [
                 {
                   "type": "initial",
@@ -68,6 +72,9 @@
               "outputHashing": "all"
             },
             "development": {
+              "define": {
+                "MONACO_EDITO_BASE_URL": "''"
+              },
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true
