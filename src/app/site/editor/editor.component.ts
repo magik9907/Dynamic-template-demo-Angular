@@ -26,38 +26,37 @@ import { NgTemplateOutlet } from '@angular/common';
 import { IS_BROWSER } from '../../tokens/is-browser';
 
 @Component({
-  selector: 'app-editor',
-  standalone: true,
-  imports: [
-    MatTabsModule,
-    MatExpansionModule,
-    MonacoEditorModule,
-    FormsModule,
-    GenerativeViewComponent,
-    MatButtonModule,
-    TransformationComponent,
-    NgTemplateOutlet,
-  ],
-  providers: [
-    {
-      provide: TEMPLATE_TOKEN,
-      multi: true,
-      useValue: { key: 'text-a', component: TextAComponent, default: true },
-    },
-    {
-      provide: TEMPLATE_TOKEN,
-      multi: true,
-      useValue: { key: 'text-b', component: TextBComponent },
-    },
-    {
-      provide: TEMPLATE_TOKEN,
-      multi: true,
-      useValue: { key: 'text-c', component: TextCComponent },
-    },
-    TemplateManagerService,
-  ],
-  templateUrl: './editor.component.html',
-  styleUrl: './editor.component.scss',
+    selector: 'app-editor',
+    imports: [
+        MatTabsModule,
+        MatExpansionModule,
+        MonacoEditorModule,
+        FormsModule,
+        GenerativeViewComponent,
+        MatButtonModule,
+        TransformationComponent,
+        NgTemplateOutlet,
+    ],
+    providers: [
+        {
+            provide: TEMPLATE_TOKEN,
+            multi: true,
+            useValue: { key: 'text-a', component: TextAComponent, default: true },
+        },
+        {
+            provide: TEMPLATE_TOKEN,
+            multi: true,
+            useValue: { key: 'text-b', component: TextBComponent },
+        },
+        {
+            provide: TEMPLATE_TOKEN,
+            multi: true,
+            useValue: { key: 'text-c', component: TextCComponent },
+        },
+        TemplateManagerService,
+    ],
+    templateUrl: './editor.component.html',
+    styleUrl: './editor.component.scss'
 })
 export class EditorComponent {
   localStorageService = inject(LocalStorageService);

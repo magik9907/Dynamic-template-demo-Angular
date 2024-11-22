@@ -3,11 +3,10 @@ import { AbstractTemplateComponent } from '../../dynamic-template/abstract-templ
 import { JsonPipe } from '@angular/common';
 
 @Component({
-  selector: 'app-text-a',
-  standalone: true,
-  imports: [JsonPipe],
-  templateUrl: './text-a.component.html',
-  styleUrl: './text-a.component.scss',
+    selector: 'app-text-a',
+    imports: [JsonPipe],
+    templateUrl: './text-a.component.html',
+    styleUrl: './text-a.component.scss'
 })
 export class TextAComponent extends AbstractTemplateComponent<string> {
 

@@ -10,12 +10,11 @@ import { NgComponentOutlet, NgTemplateOutlet } from '@angular/common';
 import { MappedData, TemplateSchema } from '../types';
 
 @Component({
-  selector: 'app-template-wrapper',
-  standalone: true,
-  imports: [NgComponentOutlet],
-  providers: [],
-  templateUrl: './template-wrapper.component.html',
-  styleUrl: './template-wrapper.component.scss',
+    selector: 'app-template-wrapper',
+    imports: [NgComponentOutlet],
+    providers: [],
+    templateUrl: './template-wrapper.component.html',
+    styleUrl: './template-wrapper.component.scss'
 })
 export class TemplateWrapperComponent {
   templateServce = inject(TemplateManagerService);

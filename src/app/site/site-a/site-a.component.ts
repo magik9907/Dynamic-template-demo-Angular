@@ -47,12 +47,11 @@ interface IExample {
 }
 
 @Component({
-  selector: 'app-site-a',
-  standalone: true,
-  imports: [GenerativeViewComponent],
-  providers: [...providers_a, TemplateManagerService],
-  templateUrl: './site-a.component.html',
-  styleUrl: './site-a.component.scss',
+    selector: 'app-site-a',
+    imports: [GenerativeViewComponent],
+    providers: [...providers_a, TemplateManagerService],
+    templateUrl: './site-a.component.html',
+    styleUrl: './site-a.component.scss'
 })
 export class SiteAComponent {
   example: IExample = {

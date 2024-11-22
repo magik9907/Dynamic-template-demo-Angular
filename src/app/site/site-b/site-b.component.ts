@@ -47,12 +47,11 @@ export const providers_b: Provider[] = [
 ];
 
 @Component({
-  selector: 'app-site-b',
-  standalone: true,
-  providers: [...providers_b, TemplateManagerService],
-  imports: [GenerativeViewComponent],
-  templateUrl: './site-b.component.html',
-  styleUrl: './site-b.component.scss',
+    selector: 'app-site-b',
+    providers: [...providers_b, TemplateManagerService],
+    imports: [GenerativeViewComponent],
+    templateUrl: './site-b.component.html',
+    styleUrl: './site-b.component.scss'
 })
 export class SiteBComponent {
   example: IExample = {

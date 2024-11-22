@@ -11,18 +11,17 @@ import { MonacoEditorModule } from 'ngx-monaco-editor-v2';
 import { IS_BROWSER } from '../../../../tokens/is-browser';
 
 @Component({
-  selector: 'app-transformation',
-  standalone: true,
-  imports: [
-    FormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    MatButtonModule,
-    MonacoEditorModule,
-  ],
-  templateUrl: './transformation.component.html',
-  styleUrl: './transformation.component.scss',
+    selector: 'app-transformation',
+    imports: [
+        FormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatSelectModule,
+        MatButtonModule,
+        MonacoEditorModule,
+    ],
+    templateUrl: './transformation.component.html',
+    styleUrl: './transformation.component.scss'
 })
 export class TransformationComponent {
   readonly isBrowser = inject(IS_BROWSER);

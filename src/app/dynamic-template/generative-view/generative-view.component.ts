@@ -5,11 +5,10 @@ import { DataTransformPipe } from '../pipe/data-transform.pipe';
 import { JsonPipe } from '@angular/common';
 
 @Component({
-  selector: 'app-generative-view',
-  standalone: true,
-  imports: [TemplateWrapperComponent, DataTransformPipe, JsonPipe],
-  templateUrl: './generative-view.component.html',
-  styleUrl: './generative-view.component.scss',
+    selector: 'app-generative-view',
+    imports: [TemplateWrapperComponent, DataTransformPipe, JsonPipe],
+    templateUrl: './generative-view.component.html',
+    styleUrl: './generative-view.component.scss'
 })
 export class GenerativeViewComponent {
   schema = input.required({
